@@ -1,5 +1,5 @@
 package interfaz;
-
+import interfaz.*;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -47,7 +47,7 @@ import javax.swing.JTextArea;
 import java.awt.Font; 
 public class Gestion2 {
 
-	public JFrame frame2;
+	private JFrame frame2;
 	private JTextField txtNombre;
 	private JTextField txtApellido;
 	private	JRadioButton rdbtnMujer;
@@ -86,6 +86,7 @@ public class Gestion2 {
     private JLabel lblnumero;
     private JButton btnBorrar;
     private JButton btnEditar;
+    private JButton btnBuscador ;
 	/**
 	 * Launch the application.
 	 */
@@ -171,7 +172,8 @@ public class Gestion2 {
 		lblnumero = new JLabel("");
 		btnBorrar = new JButton("Borrar");
 		btnEditar = new JButton("Editar");
-	
+		btnBuscador = new JButton("Buscador");
+		
 		initialize();
 		
 	}
@@ -188,139 +190,115 @@ public class Gestion2 {
 		
 	}
 
+	/**
+	 * Propiedades
+	 */
 	private void Propiedades(){
 		frame2.setBounds(100, 100, 633, 457);
 		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame2.getContentPane().setLayout(null);
-	
+		frame2.getContentPane().add(lblNombre);
+		frame2.getContentPane().add(lblApellido);
+		frame2.getContentPane().add(rdbtnMujer);
+		frame2.getContentPane().add(rdbtnHombre);
+		frame2.getContentPane().add(slider);
+		frame2.getContentPane().add(btnCrear);
+		frame2.getContentPane().add(textPane);
+		frame2.getContentPane().add(fecha);
+		frame2.getContentPane().add(txtNombre);
+		frame2.getContentPane().add(txtApellido);
+		frame2.getContentPane().add(tglbtnVacaciones);
+		frame2.getContentPane().add(lblMostrarDinero);
+		frame2.getContentPane().add(btnleft);
+		frame2.getContentPane().add(btnRigth);
+		frame2.getContentPane().add(lblTitulo);
+		frame2.getContentPane().add(lblComentarios);
+		frame2.getContentPane().add(lblPuestoEnLa);
+        frame2.getContentPane().add(lblSueldo);		
+		frame2.setJMenuBar(menuBar);
+		frame2.getContentPane().add(fechas);
+		frame2.getContentPane().add(list);
+		frame2.getContentPane().add(txtSexo);
+		frame2.getContentPane().add(lblSexo);
+		frame2.getContentPane().add(txtPuesto);
+		frame2.getContentPane().add(lblnumero);
+		frame2.getContentPane().add(btnEditar);
+		frame2.getContentPane().add(btnBorrar);
+		
 		
 		lblNombre.setBounds(58, 86, 46, 14);
-		frame2.getContentPane().add(lblNombre);
-		
 		lblApellido.setBounds(58, 123, 46, 14);
-		frame2.getContentPane().add(lblApellido);
-		
-		
-		rdbtnMujer.setBounds(34, 159, 70, 23);
-		frame2.getContentPane().add(rdbtnMujer);
-		
-	
-		rdbtnHombre.setBounds(128, 159, 86, 23);
-		frame2.getContentPane().add(rdbtnHombre);
-		
-		
-		slider.setBounds(371, 123, 200, 34);
-		frame2.getContentPane().add(slider);
-		
-		
-		btnCrear.setBounds(58, 345, 156, 47);
-		frame2.getContentPane().add(btnCrear);
-		
-		
-		textPane.setBounds(323, 231, 270, 136);
-		frame2.getContentPane().add(textPane);
-		
-		
-		fecha.setBounds(10, 296, 108, 14);
-		frame2.getContentPane().add(fecha);
-		
-		
-		txtNombre.setBounds(128, 83, 86, 20);
-		frame2.getContentPane().add(txtNombre);
-		txtNombre.setColumns(10);
-		
-		
-		txtApellido.setBounds(128, 120, 86, 20);
-		frame2.getContentPane().add(txtApellido);
-		txtApellido.setColumns(10);
-		
-		
-		tglbtnVacaciones.setBounds(371, 53, 192, 47);
-		frame2.getContentPane().add(tglbtnVacaciones);
-		
-		slider.setMaximum(10000);
-		
-		
 		lblMostrarDinero.setBounds(371, 152, 192, 54);
-		frame2.getContentPane().add(lblMostrarDinero);
-		
-
-	
-		btnleft.setIcon(new ImageIcon(Gestion2.class.getResource("/com/sun/javafx/scene/control/skin/caspian/fxvk-backspace-button.png")));
-		btnleft.setBounds(430, 11, 46, 23);
-		frame2.getContentPane().add(btnleft);
-		
-		btnRigth.setIcon(new ImageIcon(Gestion2.class.getResource("/com/sun/javafx/webkit/prism/resources/mediaPlay.png")));
-		
-		
-		btnRigth.setBounds(547, 11, 46, 23);
-		frame2.getContentPane().add(btnRigth);
-		
-		
 		lblTitulo.setToolTipText("");
 		lblTitulo.setLabelFor(frame2);
 		lblTitulo.setBounds(10, 11, 300, 30);
-		frame2.getContentPane().add(lblTitulo);
-		
-		
 		lblComentarios.setBounds(313, 206, 68, 14);
-		frame2.getContentPane().add(lblComentarios);
-		
-		
 		lblPuestoEnLa.setBounds(10, 201, 104, 14);
-		frame2.getContentPane().add(lblPuestoEnLa);
-		
-		
 		lblSueldo.setBounds(265, 123, 96, 23);
-		frame2.getContentPane().add(lblSueldo);
-		
-		frame2.setJMenuBar(menuBar);
 		lblMostrarDinero.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMostrarDinero.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblMostrarDinero.setForeground(Color.GREEN);
+		lblSexo.setEnabled(false);
+		lblSexo.setBounds(58, 163, 46, 14);
+		lblnumero.setBounds(486, 11, 51, 23);
+		lblnumero.setVisible(false);
+		
+		
+		rdbtnMujer.setBounds(34, 159, 70, 23);
+		rdbtnHombre.setBounds(128, 159, 86, 23);
+		
+		slider.setBounds(371, 123, 200, 34);
+		slider.setMaximum(10000);
+		
+		btnCrear.setBounds(58, 345, 156, 47);
+		
+		textPane.setBounds(323, 231, 270, 136);
+		
+		fecha.setBounds(10, 296, 108, 14);
+		fechas.setBounds(128, 293, 86, 20);
+		fechas.setColumns(10);
+		
+		txtNombre.setBounds(128, 83, 86, 20);
+		txtNombre.setColumns(10);
+		txtApellido.setBounds(128, 120, 86, 20);
+		txtApellido.setColumns(10);
+		txtSexo.setBounds(128, 160, 86, 20);
+		txtSexo.setColumns(10);
+		txtSexo.setVisible(false);
+		txtPuesto.setBounds(128, 203, 86, 20);
+		txtPuesto.setColumns(10);
+		txtPuesto.setVisible(false);
+		
+		
+		tglbtnVacaciones.setBounds(371, 53, 192, 47);
 		tglbtnVacaciones.setForeground(Color.BLUE);
 		
 		
-		fechas.setBounds(128, 293, 86, 20);
-		frame2.getContentPane().add(fechas);
-		fechas.setColumns(10);
-		
+		btnleft.setIcon(new ImageIcon(Gestion2.class.getResource("/com/sun/javafx/scene/control/skin/caspian/fxvk-backspace-button.png")));
+		btnleft.setBounds(430, 11, 46, 23);
+		btnRigth.setIcon(new ImageIcon(Gestion2.class.getResource("/com/sun/javafx/webkit/prism/resources/mediaPlay.png")));
+		btnRigth.setBounds(547, 11, 46, 23);
+		btnEditar.setBounds(15, 357, 89, 23);
+		btnEditar.setVisible(false);
+		btnBorrar.setBounds(128, 357, 89, 23);
+		btnBorrar.setVisible(false);
 		
 		list.setBounds(124, 205, 156, 77);
-		frame2.getContentPane().add(list);
 		list.setListData(trabajos);
-		txtSexo.setBounds(128, 160, 86, 20);
-		frame2.getContentPane().add(txtSexo);
-		txtSexo.setColumns(10);
 		
 		
-		lblSexo.setEnabled(false);
-		lblSexo.setBounds(58, 163, 46, 14);
+		btnBuscador.setBounds(224, 357, 89, 23);
+		frame2.getContentPane().add(btnBuscador);
+		btnBuscador.setVisible(false);
 		
-		frame2.getContentPane().add(lblSexo);
-		txtPuesto.setBounds(128, 203, 86, 20);
-		frame2.getContentPane().add(txtPuesto);
-		txtPuesto.setColumns(10);
-		mnAyuda.add(mntmSalir);
-		
-		
-		lblnumero.setBounds(486, 11, 51, 23);
-		frame2.getContentPane().add(lblnumero);
-		
-		
-		
-		btnEditar.setBounds(15, 357, 89, 23);
-		frame2.getContentPane().add(btnEditar);
-		btnEditar.setVisible(false);
-		
-		
-		btnBorrar.setBounds(157, 357, 89, 23);
-		btnBorrar.setVisible(false);
-		frame2.getContentPane().add(btnBorrar);
-		lblnumero.setVisible(false);
-		txtSexo.setVisible(false);
+		mnAyuda.add(mntmSalir);		
 		
 	}
+	
+	
+	/**
+	 * Eventos
+	 */
 	private void eventos(){
 		btnCrear.addMouseListener(new MouseAdapter() {
 			@Override
@@ -404,13 +382,7 @@ public class Gestion2 {
 				lblMostrarDinero.setText(aux);;
 			} 
 		});
-		btnEditar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
-		
-		
+			
 		btnRigth.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -439,6 +411,9 @@ public class Gestion2 {
 			}
 		});
 		
+		/**
+		 * Modo Leer
+		 */
 		mntmLeer.addMouseListener(new MouseAdapter() {
 		
 			@Override
@@ -482,27 +457,33 @@ public class Gestion2 {
 					
 				
 					lblTitulo.setText("Gestion del personal - Modo Leer");
-					btnRigth.setEnabled(true);
-					btnleft.setEnabled(true);
+									
+					rdbtnHombre.setVisible(false);
+					rdbtnMujer.setVisible(false);
+										
+					txtSexo.setText(lista.get(id).getSexo());
+					txtPuesto.setText(lista.get(id).getPuesto());
+					txtPuesto.setVisible(true);
 					txtNombre.setText(lista.get(id).getNombre());
 					txtApellido.setText(lista.get(id).getApellido());
 					
-					rdbtnHombre.setVisible(false);
-					rdbtnMujer.setVisible(false);
+					list.setVisible(false);
+					
+					fechas.setText(lista.get(id).getFecha());
 					
 					lblSexo.setEnabled(true);
 					lblSexo.setVisible(true);
 					lblSexo.setText(lista.get(id).getSexo());
-					txtSexo.setText(lista.get(id).getSexo());
-					list.setVisible(false);
-					txtPuesto.setText(lista.get(id).getPuesto());
-					fechas.setText(lista.get(id).getFecha());
 					lblnumero.setVisible(true);
 					lblnumero.setText( (id+1) +" De "+ (lista.size()));
 					lblSueldo.setText(lista.get(id).getSueldo());
+					
 					btnBorrar.setVisible(true);
 					btnEditar.setVisible(true);
 					btnCrear.setVisible(false);
+					btnBuscador.setVisible(true);
+					btnRigth.setEnabled(true);
+					btnleft.setEnabled(true);
 					
 					
 					
@@ -514,15 +495,6 @@ public class Gestion2 {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				
-				txtNombre.setText(txtNombre.getText());
-				txtApellido.setText(txtApellido.getText());
-				lblSexo.setText(lblSexo.getText());
-				txtSexo.setText(txtSexo.getText());
-				txtPuesto.setText(txtPuesto.getText());
-				fecha.setText(fecha.getText());			
-				lblSueldo.setText(lista.get(id).getSueldo());
-				
 			lista.get(id).setNombre(txtNombre.getText());
 			lista.get(id).setApellido(txtApellido.getText());
 			lista.get(id).setSexo(lblSexo.getText());
@@ -532,7 +504,16 @@ public class Gestion2 {
 		
 			}
 		});
-		
+		btnBuscador.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				Buscador b = new Buscador();
+				frame2.setVisible(false);
+				b.getFrame3().setVisible(true);
+				
+			}
+		});
 		mntmSalir.addMouseListener(new MouseAdapter() {
 		
 			@Override
@@ -542,5 +523,13 @@ public class Gestion2 {
 		});
 		
 		
+	}
+	
+	public JFrame getFrame2() {
+		return frame2;
+	}
+
+	public void setFrame2(JFrame frame2) {
+		this.frame2 = frame2;
 	}
 }

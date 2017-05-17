@@ -104,7 +104,7 @@ public class GESTION {
 			public void mouseClicked(MouseEvent e) {
 				
 				Gestion2 ventana=new Gestion2();
-				ventana.frame2.setVisible(true);
+				ventana.getFrame2().setVisible(true);
 				frame.dispose();
 			
 			}
